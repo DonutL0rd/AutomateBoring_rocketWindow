@@ -12,4 +12,5 @@ for file in os.listdir():
     file_name = file_name.split("-")
     file_name = [s.strip() for s in file_name]
     new_name = '_'.join(file_name)
+    print(file_name)
     os.rename(file, new_name)
