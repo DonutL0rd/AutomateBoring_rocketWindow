@@ -18,23 +18,21 @@ class App():
 
         temp_options = ["Fahrenheit", "Celsius", "Kelvin"]
         self.temp_one_options = ttk.Combobox(self.mainframe, values=temp_options)
-        self.temp_one_options.grid(row=1, column=0, pady=10)
+        self.temp_one_options.grid(row=1, column=0, pady=10, sticky='NWES')
 
         self.conversion_temp = ttk.Entry(self.mainframe)
-        self.conversion_temp.grid(row=2, column=0)
+        self.conversion_temp.grid(row=2, column=0, sticky='NWES')
 
         self.convert_button = ttk.Button(self.mainframe, text="Convert", command=self.calculate())
-        self.convert_button.grid(row=2, column=1)
+        self.convert_button.grid(row=2, column=1, sticky='NWES')
 
 
         self.root.mainloop()
         return
+
     def calculate(self):
-        ans = self.conversion_temp.get()
-        ans = int(ans)
-        print(ans * 3)
-
-
+        temp = self.conversion_temp.get()
+        self.what_temp_one.config(text=temp)
 
 
 

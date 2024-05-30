@@ -24,7 +24,6 @@ def rename_files():
         prev = char.isupper()
     file_name = ''.join(res).strip()
     file_name = file_name.replace(" ", "-")
-    file_name = file_name.replace("_", "-")
     file_name = file_name.split("-")
     file_name = [s.strip() for s in file_name]
     new_name = '_'.join(file_name)
