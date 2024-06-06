@@ -5,23 +5,6 @@ import shutil
 from random import randint
 
 
-def make_use_key():
-    # ______key_______#
-    key = Fernet.generate_key()
-
-    global key_file_name
-    key_file_name = str(f'{randint(200, 999)}.key')
-
-    with open(key_file_name, 'wb') as filekey:
-        filekey.write(key)
-        filekey.flush()
-        os.fsync(filekey.fileno())
-
-    with open(key_file_name, 'rb') as filekey:
-        key = filekey.read()
-
-    global fernet
-    fernet = Fernet(key)
 def main():
     while True:
         print('__________MENU__________')
@@ -38,6 +21,7 @@ def main():
         else:
             print('something went wrong')
 
+
 def make_file():
     ans = input('what would you like to name the text file?\n')
     ans = ans+".txt"
@@ -50,6 +34,13 @@ def make_file():
 
 
 def encrypt():
+
+
+    with open("keyfile.key", 'rb') as filekey:
+        key = filekey.read()
+
+    global fernet
+    fernet = Fernet(key)
 
     while True:
         file_name = input('Enter the file name and extension: ')
@@ -66,9 +57,5 @@ def encrypt():
 
     with open(file_name, 'wb') as encrypted_file:
         encrypted_file.write(encrypted)
-
-    shutil.move(file_name, 'D:/')
-    shutil.move(key_file_name, 'D:/')
-    print('moved encrypted file and key file to flash drive')
 
 main()
