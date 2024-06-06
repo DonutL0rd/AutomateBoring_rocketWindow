@@ -1,5 +1,6 @@
 import os
 
+
 # C:\Users\gameg\OneDrive\Desktop\test_python_folder
 
 def simplify_dir(dir):
@@ -29,6 +30,7 @@ def rename_files():
     file_name = [s.strip() for s in file_name]
     new_name = '_'.join(file_name)
     print(f"changed {name} to {new_name + ext}")
+    os.rename(file, new_name + ext)
 
 
 chosenDir = input("Coppy directory path here\n")

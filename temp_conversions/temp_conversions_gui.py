@@ -13,8 +13,14 @@ class App():
         self.what_temp_one = ttk.Label(self.mainframe,
                                        text="What what temperature would you like to convert from?",
                                        background="white",
-                                       font=("Times New Roman", 10))
+                                       font=("Times New Roman", 12))
         self.what_temp_one.grid(row=0, column=0)
+
+        self.answer = ttk.Label(self.mainframe,
+                                text="The answer is: ",
+                                background="white",
+                                font=("Times New Roman", 12))
+        self.answer.grid(row=3, column=0)
 
         temp_options = ["Fahrenheit", "Celsius", "Kelvin"]
         self.temp_one_options = ttk.Combobox(self.mainframe, values=temp_options)
@@ -32,7 +38,7 @@ class App():
 
     def calculate(self):
         temp = self.conversion_temp.get()
-        self.what_temp_one.config(text=temp)
+        self.answer.config(text=temp)
 
 
 
