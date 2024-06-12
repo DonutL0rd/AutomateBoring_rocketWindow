@@ -1,8 +1,9 @@
 from os import system
 from colorama import Fore
-
+from colorama import init
 system("Title Temperature converter")
 
+init(autoreset=True)
 
 def celsius_to_fahrenheit(celsius):
     return (celsius * 9 / 5) + 32
@@ -130,4 +131,4 @@ def main():
 
 
 if __name__ == "__main__":
-    print("run in main file")
+    main()
